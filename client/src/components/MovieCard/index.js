@@ -18,7 +18,7 @@ const CardInfo = styled(CardContent)(({theme}) => ({
 
 const MovieCard = ({ movie, onCardSelect}) => {
     return (
-        <Card sx={{ maxWidth: 250, position: "relative" }}>
+        <Card sx={{ maxWidth: 250, position: "relative", height: 380}}>
             <CardMenu>
                 <MenuItem onClick={onCardSelect}>
                     Select
@@ -32,7 +32,7 @@ const MovieCard = ({ movie, onCardSelect}) => {
                 alt={movie.title}
             />
             <CardInfo>
-                <Typography variant="h6" gutterBottom component="div">
+                <Typography variant="h6" gutterBottom component="div" >
                     {movie.title}
                 </Typography>
 
