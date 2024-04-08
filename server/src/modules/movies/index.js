@@ -1,11 +1,13 @@
 const axios = require("axios");
-const { Movies } = require("./entities/Movies.js");
-const { API_KEY } = require("../../config/index.js");
+const { Movies } = require("./entities/Movies");
 
-const getPopular = async () => {
+const { API_KEY, API_BASE_URL } = require("../../config");
+
+const getPopular = async (page) => {
   const result = await axios.get(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+    `${API_BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
   );
+
   return new Movies(result.data);
 };
 
