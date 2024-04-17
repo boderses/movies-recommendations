@@ -8,7 +8,7 @@ import Pagination from '@mui/material/Pagination';
 import { MovieCard, SelectedMoviesSection} from '../../components'
 import { MOVIES_QUERY } from './queries';
 import { useMovies } from '../../hooks/useMovies';
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
 
 const Home = () => {
     const [page, setPage] = useState(1);
