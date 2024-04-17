@@ -3,6 +3,8 @@ import MovieCard from "./MovieCard";
 import MovieCardSelected from "./MovieCardSelected";
 import SelectedMoviesForm from "./SelectedMoviesForm";
 import SelectedMoviesSection from "./SelectedMoviesSection";
+import ConfirmModal from "./ConfirmModal";
+import SocialShare from "./SocialShare";
 
 export {
   Navigation,
@@ -10,4 +12,6 @@ export {
   MovieCardSelected,
   SelectedMoviesForm,
   SelectedMoviesSection,
+  ConfirmModal,
+  SocialShare,
 };
