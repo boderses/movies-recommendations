@@ -44,7 +44,7 @@ const SelectedMoviesSection = ({ selectedMovies, deleteMovie }) => {
     const ids = selectedMovies.map(({ id }) => id);
     const link = `${
       window.location.host
-    }/recommend&title=${listName}&ids=${ids.join()}}`;
+    }/recommend?title=${listName}&ids=${ids.join()}}`;
 
     setLink(link);
     setListName(listName);
