@@ -1,16 +1,39 @@
+import { useContext } from "react";
 import { CssBaseline, Container, Box } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink,
+  ApolloLink,
+  from
+} from "@apollo/client";
 
 import { Navigation } from "./components";
 import { Home, Settings, Recommend } from "./pages";
+import { AppContext } from "./context/appContext";
 
 function App() {
+  const { state } = useContext(AppContext);
+  const httpLink = new HttpLink({ uri: "http://localhost:4000/" });
+  const localeMiddleware = new ApolloLink((operation, forward) => {
+    const customHeaders = operation.getContext().hasOwnProperty("headers")
+      ? operation.getContext().headers
+      : {};
+    operation.setContext({
+      headers: {
+        ...customHeaders,
+        locale: state.locale
+      },
+    });
+    return forward(operation);
+  });
   const client = new ApolloClient({
-    uri: "http://localhost:4000/",
+    link: from([localeMiddleware, httpLink]),
     cache: new InMemoryCache(),
-    connectToDevTools: true
+    connectToDevTools: true,
   });
   return (
     <ApolloProvider client={client}>
