@@ -17,8 +17,10 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Link as RouterLink } from "react-router-dom";
-import { AppContext } from "../../context/appContext";
+import { AppContext } from "../../providers/appContext";
 import { LOCALES } from "../../const";
+import { FormattedMessage } from "react-intl";
+import translate from "../../utils/translate";
 
 const Navigation = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -29,6 +31,7 @@ const Navigation = () => {
       locale,
     });
   }, []);
+
   const list = () => (
     <Box sx={{ width: 250 }} role="presentation">
       <List>
@@ -37,7 +40,7 @@ const Navigation = () => {
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
-            <ListItemText primary="Settings" />
+            <ListItemText primary={translate("navigation.settings")} />
           </ListItem>
         </Link>
       </List>
@@ -67,28 +70,23 @@ const Navigation = () => {
               component="div"
               sx={{ color: "white", flexGrow: 1 }}
             >
-              Movies recommendation
+              <FormattedMessage id="navigation.home" />
             </Typography>
           </Link>
           <Box>
             <Button
               disabled={state.locale === LOCALES.ENGLISH}
               sx={{ my: 2, color: "white" }}
-              onClick={() => setLanguage(LOCALES.ENGLISH)}>
+              onClick={() => setLanguage(LOCALES.ENGLISH)}
+            >
               English
-            </Button>
-
-            <Button
-              disabled={state.locale === LOCALES.DANISH}
-              sx={{ my: 2, color: "white" }}
-              onClick={() => setLanguage(LOCALES.DANISH)}>
-              DANSK
             </Button>
 
             <Button
               disabled={state.locale === LOCALES.UKRAINIAN}
               sx={{ my: 2, color: "white" }}
-              onClick={() => setLanguage(LOCALES.UKRAINIAN)}>
+              onClick={() => setLanguage(LOCALES.UKRAINIAN)}
+            >
               Українська
             </Button>
           </Box>
@@ -98,7 +96,7 @@ const Navigation = () => {
               to="settings"
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              Settings
+              <FormattedMessage id="navigation.settings" />
             </Button>
           </Box>
         </Toolbar>

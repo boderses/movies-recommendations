@@ -4,5 +4,5 @@ export const SOCIAL_BUTTON_SIZE = 32;
 export const LOCALES = {
         ENGLISH: 'en-us',
         UKRAINIAN: 'uk',
-        DANISH: 'dk'
-}
+};
+export const STORAGE_KEY = 'locale';
