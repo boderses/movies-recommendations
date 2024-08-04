@@ -52,7 +52,6 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
             color="text.secondary"
             component="div"
           >
-            Length: {movie.runtime}min
           </Typography>
         </Box>
         <CardMenu>
@@ -76,7 +75,7 @@ MovieCardSelected.propTypes = {
         name: PropTypes.string,
       })
     ),
-    runtime: PropTypes.number,
+    overview: PropTypes.string.isRequired,
   }).isRequired,
   onCardDelete: PropTypes.func,
 };

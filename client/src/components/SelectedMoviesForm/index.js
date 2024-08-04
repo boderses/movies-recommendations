@@ -26,13 +26,14 @@ const SelectedMoviesForm = ({ onSubmit }) => (
             name="listName"
             render={({ input, meta }) => (
               <FormattedMessage id="put_the_list_name">
-                <InputBase
-                  sx={{ ml: 1, flex: 1 }}
-                  placeholder="Put the list name"
-                  inputProps={{ "aria-label": "put list name" }}
-                  {...input}
-                />
-                {meta.error && meta.touched && <span>{meta.error}</span>}
+                {(placeholder) => (
+                  <InputBase
+                    sx={{ ml: 1, flex: 1 }}
+                    placeholder={placeholder}
+                    inputProps={{ "aria-label": "put list name" }}
+                    {...input}
+                  />
+                )}
               </FormattedMessage>
             )}
           />

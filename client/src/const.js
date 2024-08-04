@@ -3,6 +3,6 @@ export const CONFRIM_TIMEOUT = 3000;
 export const SOCIAL_BUTTON_SIZE = 32;
 export const LOCALES = {
         ENGLISH: 'en-us',
-        UKRAINIAN: 'uk',
+        UKRAINIAN: 'uk-ua',
 };
 export const STORAGE_KEY = 'locale';
