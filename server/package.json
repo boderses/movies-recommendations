@@ -13,9 +13,12 @@
     "@apollo/client": "^3.9.10",
     "@apollo/server": "^4.10.2",
     "apollo-server": "^3.13.0",
+    "apollo-server-core": "^3.13.0",
+    "apollo-server-express": "^3.13.0",
     "axios": "^1.6.8",
     "date-fns": "^3.6.0",
-    "graphql": "^16.8.1",
+    "express": "^4.19.2",
+    "graphql": "^16.9.0",
     "nodemon": "^3.1.0"
   }
 }
