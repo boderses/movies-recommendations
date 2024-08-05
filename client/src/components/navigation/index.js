@@ -32,6 +32,12 @@ const Navigation = () => {
     });
   }, []);
 
+  const languages = [
+    { code: LOCALES.ENGLISH, label: "English" },
+    { code: LOCALES.DANISH, label: "Dansk" },
+    { code: LOCALES.UKRAINIAN, label: "Українська" },
+  ];
+
   const list = () => (
     <Box sx={{ width: 250 }} role="presentation">
       <List>
@@ -49,7 +55,7 @@ const Navigation = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: "#483D8B" }}>
         <Toolbar>
           <Hidden only={["lg", "xl"]}>
             <IconButton
@@ -64,7 +70,11 @@ const Navigation = () => {
             </IconButton>
           </Hidden>
 
-          <Link component={RouterLink} to="/" sx={{ flexGrow: 1 }}>
+          <Link
+            component={RouterLink}
+            to="/"
+            sx={{ flexGrow: 1, textDecoration: "none" }}
+          >
             <Typography
               variant="h6"
               component="div"
@@ -74,21 +84,30 @@ const Navigation = () => {
             </Typography>
           </Link>
           <Box>
-            <Button
-              disabled={state.locale === LOCALES.ENGLISH}
-              sx={{ my: 2, color: "white" }}
-              onClick={() => setLanguage(LOCALES.ENGLISH)}
-            >
-              English
-            </Button>
-
-            <Button
-              disabled={state.locale === LOCALES.UKRAINIAN}
-              sx={{ my: 2, color: "white" }}
-              onClick={() => setLanguage(LOCALES.UKRAINIAN)}
-            >
-              Українська
-            </Button>
+            {languages.map((language) => (
+              <Button
+                key={language.code}
+                disabled={state.locale === language.code}
+                sx={{
+                  fontSize: '0.65rem',
+                  my: 2,
+                  color: state.locale === language.code ? "black" : "white",
+                  backgroundColor:
+                    state.locale === language.code
+                      ? "LightSlateGrey"
+                      : "transparent",
+                  "&.Mui-disabled": {
+                    color:
+                      state.locale === language.code
+                        ? "#000000"
+                        : "rgba(0, 0, 0, 0.26)",
+                  },
+                }}
+                onClick={() => setLanguage(language.code)}
+              >
+                {language.label}
+              </Button>
+            ))}
           </Box>
           <Box sx={{ display: { xs: "none", lg: "flex" } }}>
             <Button

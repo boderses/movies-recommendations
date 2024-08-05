@@ -1,7 +1,9 @@
-import en from './en-US';
-import uk from './uk-UA';
+import en from "./en-US";
+import uk from "./uk-UA";
+import da from "./da-DK";
 
 export default {
   ...en,
-  ...uk
+  ...da,
+  ...uk,
 };
