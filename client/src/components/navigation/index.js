@@ -85,11 +85,11 @@ const Navigation = () => {
           </Link>
           <Box>
             {languages.map((language) => (
-              <Button
+              <Button 
                 key={language.code}
                 disabled={state.locale === language.code}
                 sx={{
-                  fontSize: '0.65rem',
+                  fontSize: "0.55rem",
                   my: 2,
                   color: state.locale === language.code ? "black" : "white",
                   backgroundColor:

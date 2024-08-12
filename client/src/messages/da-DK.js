@@ -11,6 +11,28 @@ export default {
     share_with_friends: 'Del med venner',
     copied: 'Kopieret!',
     select: 'Vælg',
-    delete: 'Slet'
+    delete: 'Slet',
+    filters: {
+      sort_by: 'Sorter efter',
+      sort_direction: 'Sorter retning',
+      include_adult: 'Inkluder voksen',
+      year: 'År',
+      release_year: 'Udgivelsesår',
+      genre: 'Genre',
+      submit: 'Indsend',
+      sort: {
+        'popularity': 'Popularitet',
+        'release_date': 'Udgivelsesdato',
+        'revenue': 'Indtægter',
+        'primary_release_date': 'Primær udgivelsesdato',
+        'original_title': 'Original titel',
+        'vote_average': 'Stemmegennemsnit',
+        'vote_count': 'Optælling af stemmer'
+      },
+      sort_direction_options: {
+        asc: 'ASC',
+        desc: 'DESC'
+      }
+    }
   }
 };
