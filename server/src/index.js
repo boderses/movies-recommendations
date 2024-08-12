@@ -56,4 +56,4 @@ async function startApolloServer(typeDefs, resolvers) {
 //   console.log(`🚀 Server ready at http://localhost:${4000}${server.graphqlPath}`);
 // }
 
-startApolloServer(typeDefs, resolvers)
+startApolloServer(typeDefs, resolvers);
