@@ -30,7 +30,7 @@ const Navigation = () => {
       type: "setLocale",
       locale,
     });
-  }, []);
+  }, [dispatch]);
 
   const languages = [
     { code: LOCALES.ENGLISH, label: "English" },
@@ -83,9 +83,15 @@ const Navigation = () => {
               <FormattedMessage id="navigation.home" />
             </Typography>
           </Link>
-          <Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             {languages.map((language) => (
-              <Button 
+              <Button
                 key={language.code}
                 disabled={state.locale === language.code}
                 sx={{

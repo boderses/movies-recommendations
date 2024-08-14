@@ -13,7 +13,7 @@ import { useFilters } from "../../hooks/useFilters";
 // import Stack from '@mui/material/Stack';
 
 const Home = () => {
-  const {filter, setPage, setFilter} = useFilters();
+  const { filter, setPage, setFilter } = useFilters();
   const { loading, error, data } = useQuery(MOVIES_QUERY, {
     variables: { filter },
   });
@@ -39,18 +39,18 @@ const Home = () => {
     <Box sx={{ flexGrow: 1, marginTop: 2 }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Paper sx={{padding: '16px'}}>
-          <Filters onSubmit={onSubmit} initialValues={filter}/>
+          <Paper sx={{ padding: "16px" }}>
+            <Filters onSubmit={onSubmit} initialValues={filter} />
           </Paper>
         </Grid>
         <Grid item xs={12} md={8}>
           <Paper>
-            <Box sx={{ flexGrow: 1, padding: 1 }}>
+            <Box sx={{ flexGrow: 1, padding: 2 }}>
               {loading && "Loading..."}
               {data && (
-                <Grid container spacing={2}>
+                <Grid container spacing={2} sx={{display: "flex", justifyContent: "center",}}>
                   {data.movies.results.map((movie) => (
-                    <Grid key={movie.id} item xs={12} sm={6} md={4} lg={3}>
+                    <Grid key={movie.id} item xs={12} sm={6} md={4} lg={3} sx={{display: "flex", justifyContent: "center",}}>
                       <MovieCard movie={movie} onCardSelect={selectMovie} />
                     </Grid>
                   ))}
